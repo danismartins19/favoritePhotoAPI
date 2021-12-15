@@ -67,7 +67,6 @@ img{
     position: relative;
 }
 
-.image:hover::after,
 .image.fav::after{
     content: '\2605';
     color: var(--primary);
@@ -77,9 +76,18 @@ img{
     left: 8px;
 
     font-size: 3.2rem;
+    cursor: pointer;
 }
 
-.image .fav:hover:after{
+.image.unfav::after{
     content: '\2606';
+    color: var(--primary);
+
+    position: absolute;
+    top: 0;
+    left: 8px;
+
+    font-size: 3.2rem;
+    cursor: pointer;
 }
 

@@ -19,11 +19,13 @@ document.querySelector('.image').addEventListener('click', () => {
 
     if(index == -1){
         favorites.push(imageSource);
+        imageContainer.classList.remove('unfav');
         imageContainer.classList.add('fav');
         localStorage.setItem('favorites', JSON.stringify(favorites))
     } else {
         favorites.splice(index, 1);
         imageContainer.classList.remove('fav');
+        imageContainer.classList.add('unfav');
         localStorage.setItem('favorites', JSON.stringify(favorites))
     }
 
@@ -41,8 +43,10 @@ const getExternalImage = async ()=> {
     let checkIndex = favorites.indexOf(response.url);
     if(checkIndex == -1){
         imageContainer.classList.remove('fav');
+        imageContainer.classList.add('unfav'); 
     }else{
-        imageContainer.classList.add('fav');
+        imageContainer.classList.remove('unfav');
+        imageContainer.classList.add('fav');     
     }
 }
 
