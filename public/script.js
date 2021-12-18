@@ -9,7 +9,7 @@ let updateimage     = document.querySelector('button');
 //click events
 
 albumDiv.addEventListener('click', () =>{
-    window.open('../album.html', '_blank');
+    window.open('../album.html', '_self');
 })
 
 updateimage.addEventListener('click' , () =>{
