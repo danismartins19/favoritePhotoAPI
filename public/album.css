@@ -16,6 +16,7 @@
 body{
     display: flex;
     flex-direction: column;
+    background-color: rgb(185, 153, 105);
 }
 
 header{
@@ -67,7 +68,7 @@ p{
     width: 100%;
     height: auto;
     flex-wrap: wrap;
-    background-color: rgba(44, 44, 53, 0.808);
+    
 }
 
 .imgModels{
@@ -95,10 +96,75 @@ p{
 }
 
 .modal{
+    position: fixed;
+    top: 0;
+    left: 0;
     display: none;
-    width: 100%;
+    flex-direction: column;
+    width: 100vw;
     height: 100vh;
-    position: relative;
     z-index: 10;
+    background-color: rgba(185, 153, 105, 0.5);
+}
+
+.headerModal{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background: var(--primary);
+    position: absolute;
+}
+
+.headerModal > span {
+    position: absolute;
+    left: 45%;
+    cursor: pointer;
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+}
+
+.headerModal .delete--Image{
+    position: absolute;
+    right: 17%;
+    cursor: pointer;
+}
+
+.headerModal .download--Image{
+    position: absolute;
+    right: 10%;
+    height: 30px;
+    cursor: pointer;
+}
+
+.previous--Image{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.next--Image{
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    height: 80px;
+    cursor: pointer;
+    transform : rotate(180deg);
+}
+
+.dataModal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
+
+.modal--Image{
+    width: 50%;
+    height: 100vh;
+    object-fit: cover;
+}
+
