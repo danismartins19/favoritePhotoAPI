@@ -4,25 +4,46 @@ let buttonBack = c('.return');
 let indexPhoto = 0;
 let modalOpen = false;
 
-favorites.map((photo, index)=>{
-    let modelPhoto = c('.imgLiked').cloneNode(true);
-    modelPhoto.querySelector('img').src = photo;
-    modelPhoto.setAttribute('data-key', index);
 
-    modelPhoto.addEventListener('click' , (e) =>{
-        e.preventDefault();
-        indexPhoto = e.target.closest('.imgLiked').getAttribute('data-key');
-        updateImage(indexPhoto);
-    })
-
-    c( '.album' ).append( modelPhoto );
-})
 
 
 
 //functions
 
-const updateImage = (indexPhotoModal) =>{
+const renderImages = () =>{
+    favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    if(favorites.length > 0 ) {
+
+        document.querySelector('.noPhoto').style.display    = 'none';
+        document.querySelector('.album').style.display      = 'flex';
+
+        favorites.map((photo, index)=>{
+            let modelPhoto = c('.imgLiked').cloneNode(true);
+            modelPhoto.querySelector('img').src = photo;
+            modelPhoto.setAttribute('data-key', index);
+        
+            modelPhoto.addEventListener('click' , (e) =>{
+                e.preventDefault();
+                indexPhoto = e.target.closest('.imgLiked').getAttribute('data-key');
+                updateImageModal(indexPhoto);
+            })
+        
+            c( '.album' ).append( modelPhoto );
+        })
+    } else {
+
+        let textNoPhoto = document.querySelector('.noPhoto');
+        document.querySelector('.album').style.display      = 'none';
+        textNoPhoto.style.display    = 'flex';
+        textNoPhoto.innerHTML = 'Não há imagens curtidas!'
+    }
+    
+}
+
+renderImages();
+
+const updateImageModal = (indexPhotoModal) =>{
 
     modalOpen = true;
 
@@ -51,7 +72,7 @@ document.querySelector('.closeModal').addEventListener('click' , () =>{
 document.querySelector('.next--Image').addEventListener('click' , () =>{
     if(indexPhoto < (favorites.length - 1)){
         indexPhoto++;
-        updateImage(indexPhoto);
+        updateImageModal(indexPhoto);
         console.log('index: '+indexPhoto + ' tamanho do array: ' + favorites.length);
     }
 })
@@ -59,7 +80,7 @@ document.querySelector('.next--Image').addEventListener('click' , () =>{
 document.querySelector('.previous--Image').addEventListener('click' , () =>{
     if(indexPhoto >= 1){
         indexPhoto--;
-        updateImage(indexPhoto);
+        updateImageModal(indexPhoto);
 
     }
 })

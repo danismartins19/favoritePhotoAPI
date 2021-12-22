@@ -32,6 +32,7 @@ body{
 
 main{
     width: 100vw;
+    height: 100vh;
 }
 
 
@@ -103,7 +104,7 @@ button:hover{
 
 
 .image{
-    height: 87vh;
+    height: 84%;
     position: relative;
 }
 

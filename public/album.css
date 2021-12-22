@@ -118,7 +118,7 @@ p{
 
 .headerModal > span {
     position: absolute;
-    left: 45%;
+    left: 48%;
     cursor: pointer;
     color: var(--white);
     font-family: 'Roboto', sans-serif;
@@ -128,13 +128,6 @@ p{
 .headerModal .delete--Image{
     position: absolute;
     right: 17%;
-    cursor: pointer;
-}
-
-.headerModal .download--Image{
-    position: absolute;
-    right: 10%;
-    height: 30px;
     cursor: pointer;
 }
 
@@ -168,3 +161,12 @@ p{
     object-fit: cover;
 }
 
+.noPhoto {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 2rem;
+    margin-top: 100px;
+}
